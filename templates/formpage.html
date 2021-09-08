@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Image To Text {% endblock %}
+{% block content %}
+        <div class="container">
+            <div class=mt-5>
+            <div class="form-container">
+                {% if messages %}
+                {% for message in messages %}
+                <div class="alert alert-info alert-dismissible fade show" role="alert">
+                 {{ message}}
+                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% endfor %}
+                {% endif %}
+                <h1 class="text-center fw-bolder" style ="font-style: oblique;font-family : 'Brush Script MT', cursive;">
+                    Ocr of an Image
+                </h1>
+                <form method ="POST">
+                    {% csrf_token %}
+                    <div class="row mb-3">
+
+                    <!-- <label> Name :</label>
+                    <input type="text" class="form-control form-floating col-6" id="image" name="name" placeholder="Your Full name" required /> -->
+                    <label> Image Upload:</label>
+                    <input type="file" class="form-control form-floating col-6" id="image" name="image" /></div>
+                    <center><button type="submit" class="btn btn-md btn-info shadow col-6">Info</button></center>
+                </form>
+                <br><br>
+                <label style="font-family: Arial"><h5>Ocred Text:</h5></label>
+                <span class="textarea" role="textbox" contenteditable>{{text}}</span>
+<br><br>
+                <label style="font-family: Arial"><h5>Summarized Text:</h5></label>
+                <span class="textarea" role="textbox" style="font-family: Arial;font-style: italic"contenteditable>{{summarized_text}}</span>
+
+            </div>
+        </div>
+        </div>
+    </body>
+    {% endblock %}
+
+
+</html>

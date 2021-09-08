@@ -1,0 +1,28 @@
+@media  only screen and (min-device-width: 768px) 
+{
+    .form-container {
+      padding: 5%;
+      background: #ccdbdf;
+      border: 9px solid #90c7d1;            
+      max-width: 720px;
+      /* height: 720px; */
+      margin: auto;
+    }
+}
+body
+{
+   background-color: #011f2b;
+    /* color:#0820e1; */
+}
+h1, p
+{
+  text-align: center;
+}
+input, textarea 
+{
+  width: 100%;
+}    
+textarea
+{
+  height: 200px;
+} 

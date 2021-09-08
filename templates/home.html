@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %} 
+{% block title %} Welcome To OCR-WEB-APP {% endblock %}
+{% block content %}
+<div class="mt-5">
+<img src="{% static 'img/home.jpeg' %}" class="rounded mx-auto d-block" alt="Home" height="320px">
+</div>
+<br><br>
+<h1 style="color:rgb(187, 155, 209)">BEST OCR TOOL AVAILABLE ONLINE</h1>
+<br>
+<div class="col align-self-center">
+    <center><p class="h2 text-warning">Disconnect From Technology</p></center>
+    <center><p class="h3 text-light mt-3">Reconnect With Each Other</p></center>
+    </div>
+<center><a href="{% url 'index' %}"><button type="button" class="btn btn-primary btn-md mt-3 shadow">Let's Get Started</button></a></center>
+
+
+
+{% endblock %}
