@@ -34,10 +34,10 @@ def contact(request):
 
 
 
-
 def index(request):
     text = ""
     summarized_text = ""
+    message = ""
     if request.method == 'POST':
         form = ImageUpload(request.POST, request.FILES)
         if form.is_valid():
@@ -51,17 +51,16 @@ def index(request):
                 text = pytesseract.image_to_string(Image.open(pathz))
                 text = text.encode("ascii", "ignore")
                 text = text.decode()
-                
 
                 # Summary (0.1% of the original content).
                 summarized_text = summarize(text, ratio=0.1)
                 os.remove(pathz)
             except:
-                messages.error(request,"Check your filename and ensure it doesn't have any space or check if it has any text")
+                message = "check your filename and ensure it doesn't have any space or check if it has any text"
 
     context = {
         'text': text,
         'summarized_text': summarized_text,
-       
+        'message': message
     }
     return render(request, 'formpage.html', context)
