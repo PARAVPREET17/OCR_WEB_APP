@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from .forms import ContactForm
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 # import pytesseract to convert text in image to string
 import pytesseract
@@ -33,7 +34,7 @@ def contact(request):
        return render(request, 'contact.html')
 
 
-
+@login_required
 def index(request):
     text = ""
     summarized_text = ""
