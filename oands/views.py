@@ -38,7 +38,6 @@ def contact(request):
 def index(request):
     text = ""
     summarized_text = ""
-    message = ""
     if request.method == 'POST':
         form = ImageUpload(request.POST, request.FILES)
         if form.is_valid():
@@ -61,6 +60,5 @@ def index(request):
     context = {
         'text': text,
         'summarized_text': summarized_text,
-        'message': message
     }
     return render(request, 'formpage.html', context)
