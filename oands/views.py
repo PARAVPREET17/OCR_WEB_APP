@@ -38,6 +38,7 @@ def contact(request):
 def index(request):
     text = ""
     summarized_text = ""
+    message = ""
     if request.method == 'POST':
         form = ImageUpload(request.POST, request.FILES)
         if form.is_valid():
@@ -56,9 +57,11 @@ def index(request):
                 summarized_text = summarize(text, ratio=0.1)
                 os.remove(pathz)
             except:
-                messages.error("Check your filename and ensure it doesn't have any space or check if it has any text")
+                message = "check your filename and ensure it doesn't have any space or check if it has any text"
+
     context = {
         'text': text,
         'summarized_text': summarized_text,
+        'message': message
     }
     return render(request, 'formpage.html', context)
