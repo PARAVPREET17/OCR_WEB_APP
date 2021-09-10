@@ -1,1 +1,1 @@
-# Django_Blog_Web_App
+# OCR_WEB_APP
