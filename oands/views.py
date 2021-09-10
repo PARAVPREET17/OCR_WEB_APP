@@ -57,8 +57,7 @@ def index(request):
                 summarized_text = summarize(text, ratio=0.1)
                 os.remove(pathz)
             except:
-                message = "check your filename and ensure it doesn't have any space or check if it has any text"
-
+                messages.error("check your filename and ensure it doesn't have any space or check if it has any text")
     context = {
         'text': text,
         'summarized_text': summarized_text,
