@@ -127,7 +127,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# Default primary key field type
+# Default primary key field type= "check your filename and ensure it doesn't have any space or check if it has any text"
+
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
