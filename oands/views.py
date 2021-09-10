@@ -48,7 +48,7 @@ def index(request):
                 image = image.name
                 path = settings.MEDIA_ROOT
                 pathz = path + "/images/" + image
-
+                # pytesseract.pytesseract.tesseract_cmd = ‘/app/.apt/usr/bin/tesseract’
                 text = pytesseract.image_to_string(Image.open(pathz))
                 text = text.encode("ascii", "ignore")
                 text = text.decode()
