@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render, redirect
 from .forms import ContactForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 import pytesseract
 
 # import summarize to summarize the ocred text
-from gensim.summarization.summarizer import summarize 
+from gensim.summarization.summarizer import summarize
 
 from .forms import ImageUpload
 import os
@@ -24,14 +24,16 @@ def home(request):
 
 
 def contact(request):
-    form=ContactForm(request.POST or None)
+
     if request.method == 'POST':
+        form = ContactForm(request.POST or None)
         if form.is_valid():
             form.save()
-            messages.success(request,"We have received your response you will be contacted shortly!!")
+            messages.success(
+                request, "We have received your response you will be contacted shortly!!")
             return redirect('contact')
-    else:        
-       return render(request, 'contact.html')
+    else:
+        return render(request, 'contact.html')
 
 
 @login_required
